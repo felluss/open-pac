@@ -1,0 +1,34 @@
+@model OpenPac.Models.CandidateIssue
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Importance)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Importance)
+    @Html.ValidationMessageFor(model => model.Importance)
+</div>
+
+<div class="editor-label">
+    Candidate
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.CandidateId, ((IEnumerable<OpenPac.Models.Candidate>)ViewBag.PossibleCandidates).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.LastName), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.CandidateId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.CandidateId)
+</div>
+<div class="editor-label">
+    Issue
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.IssueId, ((IEnumerable<OpenPac.Models.Issue>)ViewBag.PossibleIssues).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.Name), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.IssueId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.IssueId)
+</div>

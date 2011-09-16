@@ -1,0 +1,84 @@
+@model OpenPac.Models.MediaOutlet
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Type)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Type)
+    @Html.ValidationMessageFor(model => model.Type)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Abbreviation)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Abbreviation)
+    @Html.ValidationMessageFor(model => model.Abbreviation)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PerceivedBias)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PerceivedBias)
+    @Html.ValidationMessageFor(model => model.PerceivedBias)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PrimaryContact)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PrimaryContact)
+    @Html.ValidationMessageFor(model => model.PrimaryContact)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PrimaryContactType)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PrimaryContactType)
+    @Html.ValidationMessageFor(model => model.PrimaryContactType)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PrimaryContactValue)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PrimaryContactValue)
+    @Html.ValidationMessageFor(model => model.PrimaryContactValue)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.SecondaryContact)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.SecondaryContact)
+    @Html.ValidationMessageFor(model => model.SecondaryContact)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.SecondaryContactType)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.SecondaryContactType)
+    @Html.ValidationMessageFor(model => model.SecondaryContactType)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.SecondaryContactValue)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.SecondaryContactValue)
+    @Html.ValidationMessageFor(model => model.SecondaryContactValue)
+</div>
+

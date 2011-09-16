@@ -1,0 +1,26 @@
+@model OpenPac.Models.DistrictIssue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DistrictIssue</legend>
+
+    <div class="display-label">Importance</div>
+    <div class="display-field">@Model.Importance</div>
+
+    <div class="display-label">District</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.District).ToString()</div>
+
+    <div class="display-label">Issue</div>
+    <div class="display-field">@(Model.Issue == null ? "None" : Model.Issue.Name)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

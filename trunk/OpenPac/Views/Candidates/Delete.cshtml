@@ -1,0 +1,71 @@
+@model OpenPac.Models.Candidate
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Candidate</legend>
+
+    <div class="display-label">FirstName</div>
+    <div class="display-field">@Model.FirstName</div>
+
+    <div class="display-label">LastName</div>
+    <div class="display-field">@Model.LastName</div>
+
+    <div class="display-label">Email</div>
+    <div class="display-field">@Model.Email</div>
+
+    <div class="display-label">Seat</div>
+    <div class="display-field">@Model.Seat</div>
+
+    <div class="display-label">WebSiteUrl</div>
+    <div class="display-field">@Model.WebSiteUrl</div>
+
+    <div class="display-label">Party</div>
+    <div class="display-field">@Model.Party</div>
+
+    <div class="display-label">IsIncumbent</div>
+    <div class="display-field">@Model.IsIncumbent</div>
+
+    <div class="display-label">SelfDescription</div>
+    <div class="display-field">@Model.SelfDescription</div>
+
+    <div class="display-label">Birthday</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Birthday)</div>
+
+    <div class="display-label">TwitterId</div>
+    <div class="display-field">@Model.TwitterId</div>
+
+    <div class="display-label">YouTubeId</div>
+    <div class="display-field">@Model.YouTubeId</div>
+
+    <div class="display-label">FacebookId</div>
+    <div class="display-field">@Model.FacebookId</div>
+
+    <div class="display-label">LinkedInId</div>
+    <div class="display-field">@Model.LinkedInId</div>
+
+    <div class="display-label">District</div>
+    <div class="display-field">@Html.DisplayTextFor(_ => Model.District).ToString()</div>
+
+    <div class="display-label">Education</div>
+    <div class="display-field">@(Model.Education == null ? "None" : Model.Education.Count.ToString())</div>
+
+    <div class="display-label">WorkExperience</div>
+    <div class="display-field">@(Model.WorkExperience == null ? "None" : Model.WorkExperience.Count.ToString())</div>
+
+    <div class="display-label">ImportantIssues</div>
+    <div class="display-field">@(Model.ImportantIssues == null ? "None" : Model.ImportantIssues.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

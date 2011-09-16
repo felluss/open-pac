@@ -1,0 +1,32 @@
+@model OpenPac.Models.Issue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Issue</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Category</div>
+    <div class="display-field">@Model.Category</div>
+
+    <div class="display-label">MediaOutletIssues</div>
+    <div class="display-field">@(Model.MediaOutletIssues == null ? "None" : Model.MediaOutletIssues.Count.ToString())</div>
+
+    <div class="display-label">CandidateIssues</div>
+    <div class="display-field">@(Model.CandidateIssues == null ? "None" : Model.CandidateIssues.Count.ToString())</div>
+
+    <div class="display-label">DistrictIssues</div>
+    <div class="display-field">@(Model.DistrictIssues == null ? "None" : Model.DistrictIssues.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

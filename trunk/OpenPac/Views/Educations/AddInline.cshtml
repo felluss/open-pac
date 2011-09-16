@@ -1,0 +1,67 @@
+﻿@model OpenPac.Models.Education
+
+@using (Ajax.BeginForm("AddInline", "Educations", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId="education" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Add Education</legend>
+
+        <input type="hidden" id="CandidateId" name="CandidateId" value="@Html.ViewData.Model.CandidateId" />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Degree)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Degree)
+            @Html.ValidationMessageFor(model => model.Degree)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Start)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Start)
+            @Html.ValidationMessageFor(model => model.Start)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.End)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.End)
+            @Html.ValidationMessageFor(model => model.End)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.School)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.School)
+            @Html.ValidationMessageFor(model => model.School)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Major)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Major)
+            @Html.ValidationMessageFor(model => model.Major)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Minor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Minor)
+            @Html.ValidationMessageFor(model => model.Minor)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
