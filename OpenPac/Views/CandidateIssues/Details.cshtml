@@ -1,0 +1,26 @@
+@model OpenPac.Models.CandidateIssue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CandidateIssue</legend>
+
+    <div class="display-label">Importance</div>
+    <div class="display-field">@Model.Importance</div>
+
+    <div class="display-label">Candidate</div>
+    <div class="display-field">@(Model.Candidate == null ? "None" : Model.Candidate.LastName)</div>
+
+    <div class="display-label">Issue</div>
+    <div class="display-field">@(Model.Issue == null ? "None" : Model.Issue.Name)</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

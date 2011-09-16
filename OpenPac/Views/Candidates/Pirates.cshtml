@@ -1,0 +1,30 @@
+﻿@model IEnumerable<OpenPac.Models.Candidate>
+
+@{
+    ViewBag.Title = "Pirates";
+}
+
+<h2>Pirates</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@foreach (var item in Model)
+{
+<h2>@item.LastName, @item.FirstName</h2>
+<h3>@item.Party Candidate for @item.Seat in @item.District</h3>
+
+    <span><a href="mailto:@item.Email">item.Email</a></span>
+    <span><a href="@item.WebSiteUrl" target="_blank">Website</a></span>
+    <span><a href="http://www.facebook.com/@item.FacebookId" target="_blank">Facebook</a></span>
+    <span><a href="http://www.twitter.com/@item.TwitterId" target="_blank">Twitter</a></span>
+    <span><a href="http://www.linkedin.com/in/@item.LinkedInId" target="_blank">Linked-In</a></span>
+    <span><a href="http://www.youtube.com/user/@item.YouTubeId" target="_blank">You Tube</a></span>
+
+    <h4 style="cursor: pointer">Self Description</h4>
+    <div style="display: none;">
+        @Html.Raw(item.SelfDescription)
+    </div>
+}
+

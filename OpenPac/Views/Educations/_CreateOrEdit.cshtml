@@ -1,0 +1,63 @@
+@model OpenPac.Models.Education
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.School)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.School)
+    @Html.ValidationMessageFor(model => model.School)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Start)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Start)
+    @Html.ValidationMessageFor(model => model.Start)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.End)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.End)
+    @Html.ValidationMessageFor(model => model.End)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Major)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Major)
+    @Html.ValidationMessageFor(model => model.Major)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Minor)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Minor)
+    @Html.ValidationMessageFor(model => model.Minor)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Degree)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Degree)
+    @Html.ValidationMessageFor(model => model.Degree)
+</div>
+
+<div class="editor-label">
+    Candidate
+</div>
+<div class="editor-field">
+    @Html.DropDownListFor(model => model.CandidateId, ((IEnumerable<OpenPac.Models.Candidate>)ViewBag.PossibleCandidates).Select(option => new SelectListItem {
+        Text = (option == null ? "None" : option.LastName), 
+        Value = option.Id.ToString(),
+        Selected = (Model != null) && (option.Id == Model.CandidateId)
+    }), "Choose...")
+    @Html.ValidationMessageFor(model => model.CandidateId)
+</div>

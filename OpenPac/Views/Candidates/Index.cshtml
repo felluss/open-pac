@@ -1,0 +1,125 @@
+@model IEnumerable<OpenPac.Models.Candidate>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            FirstName
+        </th>
+        <th>
+            LastName
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Seat
+        </th>
+        <th>
+            WebSiteUrl
+        </th>
+        <th>
+            Party
+        </th>
+        <th>
+            IsIncumbent
+        </th>
+        <th>
+            Birthday
+        </th>
+        <th>
+            TwitterId
+        </th>
+        <th>
+            YouTubeId
+        </th>
+        <th>
+            FacebookId
+        </th>
+        <th>
+            LinkedInId
+        </th>
+        <th>
+            District
+        </th>
+        <th>
+            Education
+        </th>
+        <th>
+            WorkExperience
+        </th>
+        <th>
+            ImportantIssues
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+			@item.FirstName
+        </td>
+        <td>
+			@item.LastName
+        </td>
+        <td>
+			@item.Email
+        </td>
+        <td>
+			@item.Seat
+        </td>
+        <td>
+			@item.WebSiteUrl
+        </td>
+        <td>
+			@item.Party
+        </td>
+        <td>
+			@item.IsIncumbent
+        </td>
+        <td>
+			@String.Format("{0:g}", item.Birthday)
+        </td>
+        <td>
+			@item.TwitterId
+        </td>
+        <td>
+			@item.YouTubeId
+        </td>
+        <td>
+			@item.FacebookId
+        </td>
+        <td>
+			@item.LinkedInId
+        </td>
+        <td>
+			@Html.DisplayTextFor(_ => item.District).ToString()
+        </td>
+        <td>
+			@(item.Education == null ? "None" : item.Education.Count.ToString())
+        </td>
+        <td>
+			@(item.WorkExperience == null ? "None" : item.WorkExperience.Count.ToString())
+        </td>
+        <td>
+			@(item.ImportantIssues == null ? "None" : item.ImportantIssues.Count.ToString())
+        </td>
+    </tr>
+}
+
+</table>
+
+

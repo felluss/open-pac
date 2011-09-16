@@ -1,0 +1,65 @@
+@model IEnumerable<OpenPac.Models.Education>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            School
+        </th>
+        <th>
+            Start
+        </th>
+        <th>
+            End
+        </th>
+        <th>
+            Major
+        </th>
+        <th>
+            Minor
+        </th>
+        <th>
+            Degree
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+        <td>
+			@item.School
+        </td>
+        <td>
+			@String.Format("{0:g}", item.Start)
+        </td>
+        <td>
+			@String.Format("{0:g}", item.End)
+        </td>
+        <td>
+			@item.Major
+        </td>
+        <td>
+			@item.Minor
+        </td>
+        <td>
+			@item.Degree
+        </td>
+    </tr>
+}
+
+</table>
+
+

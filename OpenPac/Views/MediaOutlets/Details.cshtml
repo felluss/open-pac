@@ -1,0 +1,53 @@
+@model OpenPac.Models.MediaOutlet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>MediaOutlet</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Type</div>
+    <div class="display-field">@Model.Type</div>
+
+    <div class="display-label">Abbreviation</div>
+    <div class="display-field">@Model.Abbreviation</div>
+
+    <div class="display-label">PerceivedBias</div>
+    <div class="display-field">@Model.PerceivedBias</div>
+
+    <div class="display-label">PrimaryContact</div>
+    <div class="display-field">@Model.PrimaryContact</div>
+
+    <div class="display-label">PrimaryContactType</div>
+    <div class="display-field">@Model.PrimaryContactType</div>
+
+    <div class="display-label">PrimaryContactValue</div>
+    <div class="display-field">@Model.PrimaryContactValue</div>
+
+    <div class="display-label">SecondaryContact</div>
+    <div class="display-field">@Model.SecondaryContact</div>
+
+    <div class="display-label">SecondaryContactType</div>
+    <div class="display-field">@Model.SecondaryContactType</div>
+
+    <div class="display-label">SecondaryContactValue</div>
+    <div class="display-field">@Model.SecondaryContactValue</div>
+
+    <div class="display-label">Districts</div>
+    <div class="display-field">@(Model.Districts == null ? "None" : Model.Districts.Count.ToString())</div>
+
+    <div class="display-label">ImportantIssues</div>
+    <div class="display-field">@(Model.ImportantIssues == null ? "None" : Model.ImportantIssues.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

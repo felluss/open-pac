@@ -1,0 +1,29 @@
+@model OpenPac.Models.MediaOutletIssue
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>MediaOutletIssue</legend>
+
+    <div class="display-label">Importance</div>
+    <div class="display-field">@Model.Importance</div>
+
+    <div class="display-label">MediaOutlet</div>
+    <div class="display-field">@(Model.MediaOutlet == null ? "None" : Model.MediaOutlet.Name)</div>
+
+    <div class="display-label">Issue</div>
+    <div class="display-field">@(Model.Issue == null ? "None" : Model.Issue.Name)</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

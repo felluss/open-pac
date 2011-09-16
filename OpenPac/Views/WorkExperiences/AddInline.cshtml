@@ -1,0 +1,59 @@
+﻿@model OpenPac.Models.WorkExperience
+
+@using (Ajax.BeginForm("AddInline", "WorkExperiences", new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "workexperience" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Add Work Experience</legend>
+
+        <input type="hidden" id="CandidateId" name="CandidateId" value="@Html.ViewData.Model.CandidateId" />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Company)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Company)
+            @Html.ValidationMessageFor(model => model.Company)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Start)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Start)
+            @Html.ValidationMessageFor(model => model.Start)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.End)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.End)
+            @Html.ValidationMessageFor(model => model.End)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Position)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Position)
+            @Html.ValidationMessageFor(model => model.Position)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Responsibilities)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Responsibilities)
+            @Html.ValidationMessageFor(model => model.Responsibilities)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,15 @@
+﻿@model ICollection<OpenPac.Models.Education>
+
+@foreach (var edu in Model.OrderBy(e => e.End))
+{ 
+    <div>
+        <h5>@edu.Degree - @edu.School</h5>
+        <div>
+            From: @edu.Start.Year To: @(edu.End.HasValue ? edu.End.Value.Year.ToString() : "Present")
+        </div>
+        <div>
+            <div>Major: @edu.Major</div>
+            <div>Minor: @edu.Minor</div>
+        </div>
+    </div>
+}

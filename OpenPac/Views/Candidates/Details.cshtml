@@ -1,0 +1,81 @@
+@model OpenPac.Models.Candidate
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.LastName, @Model.FirstName</h2>
+<h3>@Model.Party Candidate for @Model.Seat in @Model.District</h3>
+
+    <div class="display-label"><a href="mailto:@Model.Email">@Model.Email</a></div>
+    <div class="display-label"><a href="@Model.WebSiteUrl" target="_blank">Website</a></div>
+    <div class="display-label"><a href="http://www.facebook.com/@Model.FacebookId" target="_blank">Facebook</a></div>
+    <div class="display-label"><a href="http://www.twitter.com/@Model.TwitterId" target="_blank">Twitter</a></div>
+    <div class="display-label"><a href="http://www.linkedin.com/in/@Model.LinkedInId" target="_blank">Linked-In</a></div>
+
+    <h4 style="cursor: pointer">YouTube Videos (@ViewBag.YouTubeVideos.Count)</h4>
+    <div style="display: none;">
+        <a href="http://www.youtube.com/user/@Model.YouTubeId" target="_blank">You Tube Channel</a>
+        <ul id="youtube">
+        @foreach (OpenPac.ViewModels.YouTubeVideo vid in ViewBag.YouTubeVideos)
+        { 
+            <li>
+                <a href="@vid.YouTubeUrl" rel="prettyPhoto">@vid.Title</a> @vid.Updated
+            </li>
+        }
+        </ul>
+    </div>
+
+
+    <h4 style="cursor: pointer">Self Description</h4>
+    <div style="display: none;">
+        @Html.Raw(Model.SelfDescription)
+    </div>
+
+    <h4 style="cursor: pointer">Education</h4>
+    <div style="display: none;">
+        <div id="education">
+            @Html.Partial("~/Views/Educations/ListInline.cshtml", Model.Education)
+        </div>
+        <div>
+            @Html.Partial("~/Views/Educations/AddInline.cshtml", new OpenPac.Models.Education { CandidateId = Model.Id })
+        </div>
+    </div>
+
+    <h4 style="cursor: pointer">Work Experience</h4>
+    <div style="display: none;">
+        <div id="workexperience">
+            @Html.Partial("~/Views/WorkExperiences/ListInline.cshtml", Model.WorkExperience)
+        </div>
+        <div>
+            @Html.Partial("~/Views/WorkExperiences/AddInline.cshtml", new OpenPac.Models.WorkExperience { CandidateId = Model.Id })
+        </div>
+    </div>
+
+<fieldset>
+    <div class="display-label">IsIncumbent</div>
+    <div class="display-field">@Model.IsIncumbent</div>
+
+    <div class="display-label">Birthday</div>
+    <div class="display-field">@String.Format("{0:g}", Model.Birthday)</div>
+
+    <h4>Important Issues</h4>
+    <div class="display-field">@(Model.ImportantIssues == null ? "None" : Model.ImportantIssues.Count.ToString())</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('h4').click(function (e) {
+            $(this).next().toggle();
+        });
+    });
+
+
+    $(document).ready(function () {
+        $("a[rel^='prettyPhoto']").prettyPhoto();
+    });
+</script>

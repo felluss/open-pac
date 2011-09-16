@@ -1,0 +1,12 @@
+﻿@model ICollection<OpenPac.Models.WorkExperience>
+
+@foreach (var experience in Model.OrderBy(e => e.End))
+{ 
+    <div>
+        <h5>@experience.Position - @experience.Company</h5>
+        From: @experience.Start.Year To: @(experience.End.HasValue ? experience.End.Value.Year.ToString() : "Present")
+        <p>
+            @experience.Responsibilities
+        </p>
+    </div>
+}
