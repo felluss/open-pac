@@ -1,0 +1,1 @@
+A free, open source web application that can be used to manage the daily operations of a Political Action Committee. This software is created with the intent to make it easy for average people to get set-up running their own PAC to highlight the issues they want to see highlighted. It is designed for maximum transparency, allowing much information to be shared publicly.
